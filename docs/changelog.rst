@@ -1,6 +1,12 @@
 Changelog
 =========
 
+Version 0.2.1 (2019-04-29):
+---------------------------
+
+- Added documentation
+
+
 Version 0.2.0 (2019-04-20):
 ---------------------------
 
@@ -9,18 +15,16 @@ Version 0.2.0 (2019-04-20):
 Version 0.1.0 (2019-04-15):
 ---------------------------
 
-This project is based on `django-rest-framework-datatables <https://github.com/izimobil/django-rest-framework-datatables>`_ by `David Jean Louis <https://github.com/izimobil>`_)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 - Initial release.
-- Added support of `Datatables editor <https://editor.datatables.net>`_.
+- New project released with supporting `Datatables editor <https://editor.datatables.net>`_.
+- The project is based on `django-rest-framework-datatables <https://github.com/izimobil/django-rest-framework-datatables>`_ by `David Jean Louis <https://github.com/izimobil>`_)
 
+---------------------------
 
 Version 0.5.0 (2019-03-31):
 ---------------------------
 
 The changelog bellow is the changelog of `django-rest-framework-datatables <https://github.com/izimobil/django-rest-framework-datatables>`_ by `David Jean Louis <https://github.com/izimobil>`_)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - Fixed total number of rows when view is using multiple filter back-ends
 - New meta option ``datatables_extra_json`` on view for adding key/value pairs to rendered JSON

@@ -209,8 +209,8 @@ If you want to check the coverage, use:
    :target: http://travis-ci.org/izimobil/django-rest-framework-datatables?branch=master
    :alt: Travis build
 
-.. |codecov-image| image:: https://codecov.io/gh/VVyacheslav/DRF-datatables-editor/branch/master/graph/badge.svg
-  :target: https://codecov.io/gh/izimobil/django-rest-framework-datatables
+.. |codecov-image| image:: https://codecov.io/gh/VVyacheslav/django-rest-framework-datatables-editor/branch/master/graph/badge.svg
+  :target: https://codecov.io/gh/VVyacheslav/django-rest-framework-datatables-editor
 
 .. |pypi-version| image:: https://img.shields.io/pypi/v/djangorestframework-datatables-editor.svg
    :target: https://pypi.python.org/pypi/djangorestframework-datatables-editor

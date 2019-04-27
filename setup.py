@@ -9,7 +9,7 @@ from setuptools import setup
 name = 'djangorestframework-datatables-editor'
 package = 'rest_framework_datatables_editor'
 description = 'Seamless integration between Django REST framework and Datatables (https://datatables.net) with supporting Datatables editor'
-url = 'https://github.com/VVyacheslav/DRF-datatables-editor'
+url = 'https://github.com/VVyacheslav/django-rest-framework-datatables-editor'
 author = 'Vyacheslav V.V.'
 author_email = 'vvvyacheslav23@gmail.com'
 license = 'MIT'
