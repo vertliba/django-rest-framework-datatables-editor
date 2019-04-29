@@ -1,7 +1,7 @@
 django-rest-framework-datatables-editor
 =======================================
 
-|build-status-image| |codecov-image| |pypi-version| |py-versions|
+|build-status-image| |codecov-image| |documentation-status-image| |pypi-version| |py-versions|
 
 Overview
 --------
@@ -54,7 +54,7 @@ Configuring Datatables and Datatables editor
 
 - The URL for connecting datatables is the URL of your view with ``?format=datatables``
 - The URL connecting datatables editor is the URL of your view with ``editor/``
-- Full documentation will be available soon.
+- Full documentation is available on `Read the Docs <https://drf-datatables-editor.readthedocs.io/en/latest/>`_ !
 - Also you'll need download `Datatables editor <https://editor.datatables.net>`_.
 
 Example of HTML code:
@@ -215,6 +215,10 @@ If you want to check the coverage, use:
 .. |pypi-version| image:: https://img.shields.io/pypi/v/djangorestframework-datatables-editor.svg
    :target: https://pypi.python.org/pypi/djangorestframework-datatables-editor
    :alt: Pypi version
+
+.. |documentation-status-image| image:: https://readthedocs.org/projects/drf-datatables-editor/badge/?version=latest
+   :target: https://drf-datatables-editor.readthedocs.io/en/latest/?badge=latest
+   :alt: Documentation Status
 
 .. |py-versions| image:: https://img.shields.io/pypi/pyversions/djangorestframework-datatables-editor.svg
    :target: https://img.shields.io/pypi/pyversions/djangorestframework-datatables.svg
