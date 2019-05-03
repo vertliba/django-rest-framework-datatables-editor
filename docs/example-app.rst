@@ -12,7 +12,7 @@ We encourage you to give it a try with a few commandline calls:
     $ cd django-rest-framework-datatables-editor
     $ pip install -r requirements-dev.txt
 
-You need to download `Datatables Editor <https://editor.datatables.net/download/>`_ and unpack the downloaded archive in
+You need to download `Datatables Editor <https://editor.datatables.net/download/>`_, the JS+CSS version, and unpack the downloaded archive in
 ``django-rest-framework-datatables-editor/static``
 
 .. code:: bash

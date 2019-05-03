@@ -22,6 +22,8 @@ Install
 
     $ pip install djangorestframework-datatables-editor
 
+If you need the functionality of the editor, you also need to download the data editor from  `here <https://editor.datatables.net/download/>`_, the JS+CSS version, and put the downloaded files in ``static`` folder.
+
 Configuration
 ~~~~~~~~~~~~~
 
@@ -205,8 +207,8 @@ If you want to check the coverage, use:
 
 .. _tox: http://tox.readthedocs.org/en/latest/
 
-.. |build-status-image| image:: https://travis-ci.com/VVyacheslav/DRF-datatables-editor.svg?branch=master
-   :target: http://travis-ci.org/izimobil/django-rest-framework-datatables?branch=master
+.. |build-status-image| image:: https://travis-ci.com/VVyacheslav/django-rest-framework-datatables-editor.svg?branch=master
+   :target: https://travis-ci.com/VVyacheslav/django-rest-framework-datatables-editor
    :alt: Travis build
 
 .. |codecov-image| image:: https://codecov.io/gh/VVyacheslav/django-rest-framework-datatables-editor/branch/master/graph/badge.svg
