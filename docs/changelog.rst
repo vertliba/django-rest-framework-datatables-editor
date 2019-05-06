@@ -1,6 +1,13 @@
 Changelog
 =========
 
+Version 0.3.0 (2019-05-06):
+---------------------------
+
+- Added checking of the writable fields of Datatables Editor passed to Django
+- Added information about CSRF authorization to the documentation
+
+
 Version 0.2.1 (2019-04-29):
 ---------------------------
 

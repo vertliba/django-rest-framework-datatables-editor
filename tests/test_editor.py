@@ -125,3 +125,31 @@ class DatatablesEditorTestCase(TestCase):
         response = self.client.post('/api/albums/editor/', data)
         self.assertEquals(response.status_code, 404)
         self.assertEqual(Album.objects.all().count(), 15)
+
+    def test_one_wrong_field_name(self):
+        data = {
+            'action': 'create',
+            'data[0][incorrect_field]': 16,
+            'data[0][artist][id]': 2,
+            'data[0][name]': 'New name',
+            'data[0][year]': 1950,
+        }
+        response = self.client.post('/api/albums/editor/', data)
+        self.assertEquals(response.status_code, 400)
+        result = response.json()[0]
+        expected = 'The following fields are present in the request, but they are not writable: incorrect_field'
+        self.assertEqual(result, expected)
+
+    def test_two_wrong_field_name(self):
+        data = {
+            'action': 'create',
+            'data[0][incorrect_field1]': 16,
+            'data[0][incorrect_field2]': 16,
+        }
+        response = self.client.post('/api/albums/editor/', data)
+        expected1 = 'The following fields are present in the request, but they are not writable:'
+        expected2 = 'incorrect_field1'
+        expected3 = 'incorrect_field2'
+        self.assertContains(response, expected1, count=1, status_code=400)
+        self.assertContains(response, expected2, count=1, status_code=400)
+        self.assertContains(response, expected3, count=1, status_code=400)

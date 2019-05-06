@@ -7,11 +7,22 @@ from rest_framework.generics import get_object_or_404
 from rest_framework.viewsets import ModelViewSet
 
 
+def check_fields(serializer, data):
+    # _writable_fields
+    list_fields_in_data = set(list(data.values())[0].keys())
+    list_of_writable_fields = set(
+        [field.field_name for field in serializer()._writable_fields]
+    )
+    invalid_fields = list_fields_in_data - list_of_writable_fields
+    if len(invalid_fields):
+        raise ValidationError(
+            "The following fields are present in the request,"
+            " but they are not writable: " +
+            ','.join(str(field) for field in invalid_fields)
+        )
+
+
 class EditorModelMixin(object):
-    pass
-
-
-class DatatablesEditorModelViewSet(EditorModelMixin, ModelViewSet):
 
     @staticmethod
     def get_post_date(post):
@@ -42,6 +53,7 @@ class DatatablesEditorModelViewSet(EditorModelMixin, ModelViewSet):
 
         return_data = []
         if act == 'edit' or act == 'remove' or act == 'create':
+            check_fields(self.serializer_class, data)
             for elem_id, changes in data.items():
                 if act == 'create':
                     serializer = self.serializer_class(
@@ -68,3 +80,7 @@ class DatatablesEditorModelViewSet(EditorModelMixin, ModelViewSet):
                     elem.delete()
 
         return JsonResponse({'data': return_data})
+
+
+class DatatablesEditorModelViewSet(EditorModelMixin, ModelViewSet):
+    pass
