@@ -169,7 +169,8 @@ To play with the example project, just clone the repository and run the dev serv
 .. code:: bash
 
     $ git clone https://github.com/VVyacheslav/DRF-datatables-editor.git
-    $ cd django-rest-framework-datatables-editor
+    $ cd DRF-datatables-editor
+    Activate virtualenv.
     $ pip install -r requirements-dev.txt
     $ python example/manage.py runserver
     $ firefox http://127.0.0.1:8000
