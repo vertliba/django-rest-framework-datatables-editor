@@ -1,6 +1,12 @@
 Changelog
 =========
 
+Version 0.3.2 (2019-05-23):
+---------------------------
+
+- Fixed checking fields when deleting
+
+
 Version 0.3.1 (2019-05-22):
 ---------------------------
 

@@ -77,6 +77,8 @@ class DatatablesEditorTestCase(TestCase):
         data = {
             'action': 'remove',
             'data[7][rank]': '',
+            'data[7][DT_RowId]': '7',
+            'data[7][DT_RowAttr][data-pk]': '7',
         }
         response = self.client.post('/api/albums/editor/', data)
         expected = {'data': []}

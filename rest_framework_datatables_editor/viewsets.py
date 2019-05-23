@@ -53,9 +53,9 @@ class EditorModelMixin(object):
 
         return_data = []
         if act == 'edit' or act == 'remove' or act == 'create':
-            check_fields(self.serializer_class, data)
             for elem_id, changes in data.items():
                 if act == 'create':
+                    check_fields(self.serializer_class, data)
                     serializer = self.serializer_class(
                         data=changes,
                         context={'request': request}
@@ -68,6 +68,7 @@ class EditorModelMixin(object):
 
                 elem = get_object_or_404(self.queryset, pk=elem_id)
                 if act == 'edit':
+                    check_fields(self.serializer_class, data)
                     serializer = self.serializer_class(
                         instance=elem, data=changes,
                         partial=True, context={'request': request}
