@@ -1,7 +1,8 @@
+import six
+
 from collections import OrderedDict
 
 from django.core.paginator import InvalidPage
-from django.utils import six
 from rest_framework.exceptions import NotFound
 from rest_framework.pagination import (
     PageNumberPagination, LimitOffsetPagination
