@@ -1,1 +1,2 @@
 djangorestframework>=3.9.1
+six==1.14.0
