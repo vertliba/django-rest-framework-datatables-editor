@@ -3,9 +3,11 @@ from rest_framework import viewsets
 from rest_framework.response import Response
 
 from rest_framework_datatables_editor.filters import DatatablesFilterBackend
-from rest_framework_datatables_editor.pagination import DatatablesPageNumberPagination
-from rest_framework_datatables_editor.renderers import DatatablesRenderer
-from rest_framework_datatables_editor.viewsets import DatatablesEditorModelViewSet
+from rest_framework_datatables_editor.pagination import (
+    DatatablesPageNumberPagination)
+from rest_framework_datatables_editor.renderers import (DatatablesRenderer)
+from rest_framework_datatables_editor.viewsets import (
+    DatatablesEditorModelViewSet)
 from .models import Album, Artist, Genre
 from .serializers import AlbumSerializer, ArtistSerializer
 
@@ -16,8 +18,10 @@ def index(request):
 
 def get_album_options():
     return "options", {
-        "artist.id": [{'label': obj.name, 'value': obj.pk} for obj in Artist.objects.all()],
-        "genre": [{'label': obj.name, 'value': obj.pk} for obj in Genre.objects.all()]
+        "artist.id": [{'label': obj.name, 'value': obj.pk}
+                      for obj in Artist.objects.all()],
+        "genre": [{'label': obj.name, 'value': obj.pk}
+                  for obj in Genre.objects.all()]
     }
 
 

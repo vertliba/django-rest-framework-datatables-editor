@@ -41,13 +41,13 @@ class DatatablesEditorTestCase(TestCase):
         result = response.json()['data']
         order_flag = 0 if result[0]['name'] == 'New name1' else 1
 
-        self.assertEqual(result[order_flag-0]['name'], 'New name1')
-        self.assertEqual(result[order_flag-0]['artist']['id'], 2)
+        self.assertEqual(result[order_flag - 0]['name'], 'New name1')
+        self.assertEqual(result[order_flag - 0]['artist']['id'], 2)
         album = Album.objects.get(pk=1)
         self.assertEqual([album.name, album.artist.id], ['New name1', 2])
 
-        self.assertEqual(result[order_flag-1]['name'], 'New name4')
-        self.assertEqual(result[order_flag-1]['artist']['id'], 4)
+        self.assertEqual(result[order_flag - 1]['name'], 'New name4')
+        self.assertEqual(result[order_flag - 1]['artist']['id'], 4)
         album = Album.objects.get(pk=4)
         self.assertEqual([album.name, album.artist.id], ['New name4', 4])
 
@@ -139,7 +139,8 @@ class DatatablesEditorTestCase(TestCase):
         response = self.client.post('/api/albums/editor/', data)
         self.assertEquals(response.status_code, 400)
         result = response.json()[0]
-        expected = 'The following fields are present in the request, but they are not writable: incorrect_field'
+        expected = ('The following fields are present in the request, '
+                    'but they are not writable: incorrect_field')
         self.assertEqual(result, expected)
 
     def test_two_wrong_field_name(self):
@@ -149,7 +150,8 @@ class DatatablesEditorTestCase(TestCase):
             'data[0][incorrect_field2]': 16,
         }
         response = self.client.post('/api/albums/editor/', data)
-        expected1 = 'The following fields are present in the request, but they are not writable:'
+        expected1 = ('The following fields are present in the request, '
+                     'but they are not writable:')
         expected2 = 'incorrect_field1'
         expected3 = 'incorrect_field2'
         self.assertContains(response, expected1, count=1, status_code=400)
