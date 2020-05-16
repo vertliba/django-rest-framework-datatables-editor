@@ -64,18 +64,20 @@ DATABASES = {
     }
 }
 
+validation = 'django.contrib.auth.password_validation'
+
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME': '%s.UserAttributeSimilarityValidator' % validation,
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME': '%s.MinimumLengthValidator' % validation,
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME': '%s.CommonPasswordValidator' % validation,
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME': '%s.NumericPasswordValidator' % validation,
     },
 ]
 
@@ -105,6 +107,7 @@ REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': (
         'rest_framework_datatables_editor.filters.DatatablesFilterBackend',
     ),
-    'DEFAULT_PAGINATION_CLASS': 'rest_framework_datatables_editor.pagination.DatatablesPageNumberPagination',
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework_datatables_editor.pagination.'
+                                'DatatablesPageNumberPagination',
     'PAGE_SIZE': 50,
 }
