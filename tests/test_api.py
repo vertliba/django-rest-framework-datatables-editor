@@ -13,9 +13,10 @@ class TestApiTestCase(TestCase):
     fixtures = ["test_data"]
     ELVIS_PRESLEY = "Elvis Presley"
     THE_BEATLES = "The Beatles"
-    LIMIT_OFFSET_PAGINATION =  (
+    LIMIT_OFFSET_PAGINATION = (
         "rest_framework_datatables_editor.pagination." "DatatablesLimitOffsetPagination"
     )
+
     def setUp(self):
         self.client = APIClient()
         AlbumViewSet.pagination_class = DatatablesPageNumberPagination
