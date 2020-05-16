@@ -9,13 +9,11 @@ from rest_framework_datatables_editor.pagination import (
 )
 
 
-# flake8: noqa: E501
-# noinspection E501
 class TestApiTestCase(TestCase):
     fixtures = ["test_data"]
     ELVIS_PRESLEY = "Elvis Presley"
     THE_BEATLES = "The Beatles"
-    LIMIT_OFFSET_PAGINATION = (
+    LIMIT_OFFSET_PAGINATION =  (
         "rest_framework_datatables_editor.pagination." "DatatablesLimitOffsetPagination"
     )
     def setUp(self):
