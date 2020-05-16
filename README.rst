@@ -1,7 +1,7 @@
 django-rest-framework-datatables-editor
 =======================================
 
-|build-status-image| |codecov-image| |documentation-status-image| |pypi-version| |py-versions|
+|build-status-image| |codecov-image| |documentation-status-image| |pypi-version| |py-versions| |dj-versions|
 
 Overview
 --------
@@ -208,25 +208,24 @@ If you want to check the coverage, use:
 
 .. _tox: http://tox.readthedocs.org/en/latest/
 
-.. |build-status-image| image:: https://travis-ci.com/VVyacheslav/django-rest-framework-datatables-editor.svg?branch=master
-   :target: https://travis-ci.com/VVyacheslav/django-rest-framework-datatables-editor
-   :alt: Travis build
+.. |build-status-image| image:: https://img.shields.io/github/workflow/status/VVyacheslav/django-rest-framework-datatables-editor/build/master?style=flat-square
+   :alt: Build
 
-.. |codecov-image| image:: https://codecov.io/gh/VVyacheslav/django-rest-framework-datatables-editor/branch/master/graph/badge.svg
+.. |codecov-image| image:: https://codecov.io/gh/VVyacheslav/django-rest-framework-datatables-editor/branch/master/graph/badge.svg?style=flat-square
   :target: https://codecov.io/gh/VVyacheslav/django-rest-framework-datatables-editor
 
-.. |pypi-version| image:: https://img.shields.io/pypi/v/djangorestframework-datatables-editor.svg
+.. |pypi-version| image:: https://img.shields.io/pypi/v/djangorestframework-datatables-editor.svg?style=flat-square
    :target: https://pypi.python.org/pypi/djangorestframework-datatables-editor
    :alt: Pypi version
 
-.. |documentation-status-image| image:: https://readthedocs.org/projects/drf-datatables-editor/badge/?version=latest
+.. |documentation-status-image| image:: https://readthedocs.org/projects/drf-datatables-editor/badge/?version=latest&style=flat-square
    :target: https://drf-datatables-editor.readthedocs.io/en/latest/?badge=latest
    :alt: Documentation Status
 
-.. |py-versions| image:: https://img.shields.io/pypi/pyversions/djangorestframework-datatables-editor.svg
-   :target: https://img.shields.io/pypi/pyversions/djangorestframework-datatables.svg
+.. |py-versions| image:: https://img.shields.io/pypi/pyversions/djangorestframework-datatables-editor.svg?style=flat-square
+   :target: https://img.shields.io/pypi/pyversions/djangorestframework-datatables-editor.svg
    :alt: Python versions
 
-.. |dj-versions| image:: https://img.shields.io/pypi/djversions/djangorestframework-datatables.svg
-   :target: https://img.shields.io/pypi/djversions/djangorestframework-datatables.svg
+.. |dj-versions| image:: https://img.shields.io/pypi/djversions/djangorestframework-datatables-editor.svg?style=flat-square
+   :target: https://img.shields.io/pypi/djversions/djangorestframework-datatables-editor.svg
    :alt: Django versions
