@@ -20,10 +20,10 @@ version_re = re.compile('^Version: (.+)$', re.M)
 
 def get_long_description():
     """ Return rst formatted readme and changelog. """
-    files_to_join = ['README.rst', 'changelog.rst']
+    files_to_join = ['README.rst', 'docs/changelog.rst']
     description = []
     for file in files_to_join:
-        with open('README.rst') as f:
+        with open(file) as f:
             description.append(f.read())
     return '\n\n'.join(description)
 

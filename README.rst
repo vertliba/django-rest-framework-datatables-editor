@@ -157,9 +157,9 @@ The project is based on the project `django-rest-framework-datatables <https://g
 Requirements
 ------------
 
--  Python (2.7, 3.4, 3.5, 3.6)
--  Django (1.11, 2.0, 2.1)
--  Django REST Framework (3.9)
+-  Python (2.7, 3.4, 3.5, 3.6, 3.7, 3.8)
+-  Django (1.9, 1.11, 2.0, 2.1, 2.2, 3.0)
+-  Django REST Framework (3.9, 3.10, 3.11)
 
 Example project
 ---------------
@@ -229,4 +229,3 @@ If you want to check the coverage, use:
 .. |dj-versions| image:: https://img.shields.io/pypi/djversions/djangorestframework-datatables-editor.svg?style=flat-square
    :target: https://img.shields.io/pypi/djversions/djangorestframework-datatables-editor.svg
    :alt: Django versions
-
