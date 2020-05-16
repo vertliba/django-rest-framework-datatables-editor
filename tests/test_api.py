@@ -18,7 +18,6 @@ class TestApiTestCase(TestCase):
     LIMIT_OFFSET_PAGINATION = (
         "rest_framework_datatables_editor.pagination." "DatatablesLimitOffsetPagination"
     )
-
     def setUp(self):
         self.client = APIClient()
         AlbumViewSet.pagination_class = DatatablesPageNumberPagination
