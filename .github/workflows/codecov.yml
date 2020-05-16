@@ -14,7 +14,7 @@ jobs:
         pip install -r requirements.txt
         pip install coverage
         pip install -q -e .
-        coverage run example\manage.py test tests -v 1 --noinput
+        coverage run example/manage.py test tests -v 1 --noinput
         coverage xml
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v1

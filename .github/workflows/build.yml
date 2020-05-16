@@ -34,7 +34,7 @@ jobs:
         python --version
     - name: Run Tests
       run: |
-        python example\manage.py test tests -v 1 --noinput
+        python example/manage.py test tests -v 1 --noinput
 
   flake8-linter:
     runs-on: ubuntu-latest
