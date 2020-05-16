@@ -17,6 +17,7 @@ jobs:
           - python-version: 2.7
             django-version: 1.9
             drf-version: 3.9
+        fail-fast: False
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python ${{ matrix.python-version }}
