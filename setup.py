@@ -1,46 +1,31 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-import re
 import os
-import sys
+import re
+import subprocess
+from pathlib import Path
+
 from setuptools import setup
 
-
-name = 'djangorestframework-datatables-editor'
-package = 'rest_framework_datatables_editor'
-description = 'Seamless integration between Django REST framework and Datatables (https://datatables.net) with supporting Datatables editor'
+package_name = 'djangorestframework-datatables-editor'
+folder_name = 'rest_framework_datatables_editor'
+description = ('Seamless integration between Django REST framework and '
+               'Datatables (https://datatables.net) with supporting '
+               'Datatables editor')
 url = 'https://github.com/VVyacheslav/django-rest-framework-datatables-editor'
 author = 'Vyacheslav V.V.'
 author_email = 'vvvyacheslav23@gmail.com'
 license = 'MIT'
 
-
-def get_version(package):
-    """
-    Return package version as listed in `__version__` in `init.py`.
-    """
-    with open(os.path.join(package, '__init__.py')) as fh:
-        return re.search(
-            "^__version__ = ['\"]([^'\"]+)['\"]",
-            fh.read(),
-            re.MULTILINE
-        ).group(1)
-    init_py = open(os.path.join(package, '__init__.py')).read()
+version_re = re.compile('^Version: (.+)$', re.M)
 
 
 def get_long_description():
-    """
-    Return rst formatted readme and changelog.
-    """
-    ret = []
-    with open('README.rst') as fh:
-        ret.append(fh.read())
-    try:
-        with open('docs/changelog.rst') as fh:
-            ret.append(fh.read())
-    except IOError:
-        pass
-    return '\n\n'.join(ret)
+    """ Return rst formatted readme and changelog. """
+    files_to_join = ['README.rst', 'changelog.rst']
+    description = []
+    for file in files_to_join:
+        with open('README.rst') as f:
+            description.append(f.read())
+    return '\n\n'.join(description)
 
 
 def get_packages(package):
@@ -52,43 +37,62 @@ def get_packages(package):
             if os.path.exists(os.path.join(dirpath, '__init__.py'))]
 
 
-def get_package_data(package):
+def get_version():
     """
-    Return all files under the root package, that are not in a
-    package themselves.
+    Reads version from git status or PKG-INFO
+
+    https://gist.github.com/pwithnall/7bc5f320b3bdf418265a
     """
-    walk = [(dirpath.replace(package + os.sep, '', 1), filenames)
-            for dirpath, dirnames, filenames in os.walk(package)
-            if not os.path.exists(os.path.join(dirpath, '__init__.py'))]
+    d: Path = Path(__file__).absolute().parent
+    git_dir = d.joinpath('.git')
+    if git_dir.is_dir():
+        # Get the version using "git describe".
+        cmd = 'git describe --tags --match [0-9]*'.split()
+        try:
+            version = subprocess.check_output(cmd).decode().strip()
+        except subprocess.CalledProcessError:
+            return None
 
-    filepaths = []
-    for base, filenames in walk:
-        filepaths.extend([os.path.join(base, filename)
-                          for filename in filenames])
-    return {package: filepaths}
+        # PEP 386 compatibility
+        if '-' in version:
+            version = '.post'.join(version.split('-')[:2])
 
+        # Don't declare a version "dirty" merely because a time stamp has
+        # changed. If it is dirty, append a ".dev1" suffix to indicate
+        # a development revision after the release.
+        with open(os.devnull, 'w') as fd_devnull:
+            subprocess.call(['git', 'status'],
+                            stdout=fd_devnull, stderr=fd_devnull)
 
-version = get_version(package)
+        cmd = 'git diff-index --name-only HEAD'.split()
+        try:
+            dirty = subprocess.check_output(cmd).decode().strip()
+        except subprocess.CalledProcessError:
+            return None
 
-if sys.argv[-1] == 'publish':
-    os.system("python setup.py sdist upload")
-    os.system("python setup.py bdist_wheel upload")
-    print("You probably want to also tag the version now:")
-    print("  git tag -a {0} -m 'version {0}'".format(version))
-    print("  git push --tags")
-    sys.exit()
+        if dirty != '':
+            version += '.dev1'
+    else:
+        # Extract the version from the PKG-INFO file.
+        try:
+            with open('PKG-INFO') as v:
+                version = version_re.search(v.read()).group(1)
+        except FileNotFoundError:
+            version = None
+
+    return version
 
 
 setup(
-    name=name,
-    version=version,
+    name=package_name,
+    version=get_version() or 'dev',
     url=url,
     license=license,
     description=description,
     long_description=get_long_description(),
     author=author,
     author_email=author_email,
-    packages=get_packages(package),
+    packages=get_packages(folder_name),
     install_requires=[
         'djangorestframework>=3.9.1',
     ],
@@ -101,6 +105,8 @@ setup(
         'Framework :: Django :: 1.11',
         'Framework :: Django :: 2.0',
         'Framework :: Django :: 2.1',
+        'Framework :: Django :: 2.2',
+        'Framework :: Django :: 3.0',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',

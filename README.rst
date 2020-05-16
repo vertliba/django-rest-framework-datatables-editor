@@ -229,3 +229,4 @@ If you want to check the coverage, use:
 .. |dj-versions| image:: https://img.shields.io/pypi/djversions/djangorestframework-datatables-editor.svg?style=flat-square
    :target: https://img.shields.io/pypi/djversions/djangorestframework-datatables-editor.svg
    :alt: Django versions
+
