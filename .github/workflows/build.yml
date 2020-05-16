@@ -29,7 +29,6 @@ jobs:
         echo "Python ${{ matrix.python-version }} -> Django ${{ matrix.django-version }} -> DRF ${{ matrix.drf-version }}"
         python -m pip install "Django~=${{ matrix.django-version }}.0"
         python -m pip install "djangorestframework~=${{ matrix.drf-version }}.0"
-        pip install -q -e .
         echo "Django: `django-admin --version`"
         python --version
     - name: Run Tests
