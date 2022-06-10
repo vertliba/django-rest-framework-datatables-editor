@@ -39,9 +39,16 @@ class EditorModelMixin(object):
                 read_date(data_in[1:], new_data_point, rest_of_line)
 
         data = {}
-        for (line, value) in post.items():
+        for (line, value) in post.lists():
             if line.startswith('data'):
                 line_data = re.findall(r"\[([^\[\]]*)\]", line)
+
+                if not line_data[-1]:
+                    del line_data[-1]
+
+                if len(value) == 1:
+                    value = value[0]
+
                 read_date(line_data, data, value)
         return data
 
